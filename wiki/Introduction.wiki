@@ -20,7 +20,7 @@ Exactly like the PHP sessions, the `session_id` is stored in a cookie.
 =Example Usage=
 Here is a small example usage for the pySimpleSessions.
 
-`#!/usr/bin/python
+{{{#!/usr/bin/python
 
 import sessions
 
@@ -36,4 +36,4 @@ try:
 except:
     session["count"] = 1
 
-print "You visited us " + str(session["count"]) + " times."`
+print "You visited us " + str(session["count"]) + " times."}}}
