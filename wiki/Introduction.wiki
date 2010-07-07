@@ -17,7 +17,7 @@ Since the session-class works like a dictionary, all keys are stored in the sess
 ==Client-side==
 Exactly like the PHP sessions, the `session_id` is stored in a cookie.
 
-=Example Usage=
+==Example Usage==
 Here is a small example usage for the pySimpleSessions.
 
 {{{
