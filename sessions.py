@@ -54,10 +54,8 @@ class Session(dict):
 
         # set cookie
         self.cookie["session_id"] = self.id
-        if True: #try:
-            self.cookie["expires"] = expire_date
-        else: #except:
-            pass
+        if expire_date:
+            self.cookie["session_id"]["expires"] = expire_date
         print self.cookie, "\n\n"
     
     def setSession(self):
