@@ -35,12 +35,12 @@ class Session(dict):
 			
 		self.cookie = Cookie.SimpleCookie()
 		
-		if True: #try:
+		try:
 			self.cookie.load(os.environ["HTTP_COOKIE"])
 			self.id = self.cookie["session_id"].value
 			self.readSession()
-		else: #except:
-			sys.stderr.write("exception in __init__")
+		except:
+			pass #sys.stderr.write("exception in __init__")
 			
 		# be really sure, self.id is not already set
 		try: self.id
@@ -65,20 +65,17 @@ class Session(dict):
 	def readSession(self):
 		if os.path.exists(self.sessions_path + '/' + str(self.id)) and self.id:
 			session_file = open(self.sessions_path + '/' + str(self.id)).read()
-			if True: #try:
-				lines = session_file.split('\n')
-				for line in lines:
-					if line != '':
-						line = line.split(':', 1)
-						atr = line[0]
+			lines = session_file.split('\n')
+			for line in lines:
+				if line != '':
+					line = line.split(':', 1)
+					atr = line[0]
                 
-						while line[1].startswith(' '):
-							line[1] = line[1][1:]
+					while line[1].startswith(' '):
+						line[1] = line[1][1:]
 
-						val = line[1]
-						self[atr] = val
-			else: #except:
-				pass # file has no values yet
+					val = line[1]
+					self[atr] = val
 		else:
 			sys.stderr.write("Cannot read session :" + self.id)
 			
