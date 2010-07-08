@@ -1,4 +1,5 @@
 #summary Einfuehrung in das System (german)
+#labels Featured,Phase-Design,Phase-Implementation
 
 = Einführung =
 Dieses Projekt versucht, eine Implementierung der PHP-Sessions in Python bereitzustellen.
