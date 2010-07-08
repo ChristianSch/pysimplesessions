@@ -16,10 +16,7 @@
 # Author: Christian Schulze <xcr4cx@googlemail.com>
 # Description: Simple session-based styleswitcher (with cgi)
 
-#TODO: test and validate it is working properly
-
 import cgi
-
 import sessions
 
 DEFAULT = "base_style.css"
@@ -33,7 +30,7 @@ def styleswitch():
 
     if params.has_key("style"):
         # prevent unnecessary sessions
-        session = session.Session()
+        session = sessions.Session()
 
         stylesheet = params.getvalue("style")
 
@@ -43,7 +40,7 @@ def styleswitch():
             return True
         else:
             # could not set stylesheet, since it's invalid
-            session["style"] = default
+            session["style"] = DEFAULT
             return False
     else:
         try:
@@ -52,8 +49,11 @@ def styleswitch():
                 return True
             else:
                 # remove invalid style from session
-                session["style"] = default
+        session = sessions.Session()
+                session["style"] = DEFAULT
                 return False
         except:
             # the session has no "style" key
             pass
+
+styleswitch()
