@@ -2,7 +2,7 @@
 
 = Introduction =
 
-This project is intended to provide an implementation of the PHP sessions.
+This project is intended to provide an implementation of the PHP sessions in Python.
 
 = Details =
 
