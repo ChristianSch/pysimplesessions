@@ -41,7 +41,6 @@ print "You visited us " + str(session["count"]) + " times."
 }}}
 
 ==Set cookie expiration==
-*Note: The expiration date can not be set at the moment. It will crash the whole script.*
 {{{
 10.1.2  Expires and Max-Age
 
@@ -64,8 +63,9 @@ Example:
 import sessions
 import datetime
 
-# initiate new Session with expire date
-expire = expire = datetime.datetime.now() + datetime.timedelta(730)
+# expire in two years (730 days)
+expire = datetime.datetime.now() + datetime.timedelta(730)
 
+# initiate new Session with expire date - Wdy, DD-Mon-YY HH:MM:SS GMT
 session = sessions.Session(expire_date=expire.strftime("%a, %d %b %Y %H:00:00 GMT"))
 }}}
