@@ -39,3 +39,33 @@ except:
 
 print "You visited us " + str(session["count"]) + " times."
 }}}
+
+==Set cookie expiration==
+*Note: The expiration date can not be set at the moment. It will crash the whole script.*
+{{{
+10.1.2  Expires and Max-Age
+
+   Netscape's original proposal defined an Expires header that took a
+   date value in a fixed-length variant format in place of Max-Age:
+
+   Wdy, DD-Mon-YY HH:MM:SS GMT
+
+   Note that the Expires date format contains embedded spaces, and that
+   "old" cookies did not have quotes around values.  Clients that
+   implement to this specification should be aware of "old" cookies and
+   Expires.
+}}}
+http://tools.ietf.org/html/rfc2109.html#10.1.2
+
+Example:
+{{{
+#!/usr/bin/python
+
+import sessions
+import datetime
+
+# initiate new Session with expire date
+expire = expire = datetime.datetime.now() + datetime.timedelta(730)
+
+session = sessions.Session(expire_date=expire.strftime("%a, %d %b %Y %H:00:00 GMT"))
+}}}
